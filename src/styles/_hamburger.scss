@@ -1,0 +1,149 @@
+#hamburger {
+  --transition: all 700ms linear;
+  --animation-duration: 550ms;
+  --icon-width: 100%;
+  --icon-height: 100%;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  position: relative;
+  width: var(--icon-width);
+  height: var(--icon-height);
+  padding: 0.2rem;
+}
+
+#hamburgerTop,
+#hamburgerMiddle,
+#hamburgerBottom {
+  --slice-width: var(--icon-width);
+  --slice-height: calc(var(--icon-width) / 4);
+
+  width: var(--slice-width);
+  height: var(--slice-height);
+  background: black;
+  border-radius: var(--slice-height);
+  transition: var(--transition);
+  animation-fill-mode: both;
+  animation-duration: var(--animation-duration);
+}
+
+#hamburgerMiddle {
+  transform: translate(0, 0);
+}
+
+#hamburgerBottom {
+  transform: translate(0, 0);
+}
+
+#hamburger.opened #hamburgerTop {
+  animation-name: hamburgerTopOpen;
+}
+
+#hamburger.closed #hamburgerTop {
+  animation-name: hamburgerTopClose;
+}
+
+
+#hamburger.opened #hamburgerMiddle {
+  animation-name: hamburgerMiddleOpen;
+}
+
+#hamburger.closed #hamburgerMiddle {
+  animation-name: hamburgerMiddleClose;
+}
+
+
+#hamburger.opened #hamburgerBottom {
+  animation-name: hamburgerBottomOpen;
+}
+
+#hamburger.closed #hamburgerBottom {
+  animation-name: hamburgerBottomClose;
+}
+
+
+@keyframes hamburgerTopOpen {
+  from {
+    transform: translate(0, 0) rotate(0);
+  }
+
+  50% {
+    transform: translate(0, 150%) rotate(0);
+  }
+
+  to {
+    transform: translate(0, 150%) rotate(45deg);
+  }
+}
+
+@keyframes hamburgerTopClose {
+  from {
+    transform: translate(0, 150%) rotate(45deg);
+  }
+
+  50% {
+    transform: translate(0, 150%) rotate(0);
+  }
+
+  to {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes hamburgerMiddleOpen {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hamburgerMiddleClose {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hamburgerBottomOpen {
+  from {
+    transform: translate(0, 0%);
+  }
+
+  50% {
+    transform: translate(0, -150%);
+  }
+
+  to {
+    transform: translate(0, -150%) rotate(135deg);
+  }
+}
+
+@keyframes hamburgerBottomClose {
+  from {
+    transform: translate(0, -150%) rotate(135deg);
+  }
+
+  50% {
+    transform: translate(0, -150%);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
