@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@500&display=swap"
+        rel="stylesheet">
   <link rel="stylesheet"
         href="./dist/styles/main.css">
   <script src="./dist/scripts/main.js"
@@ -15,7 +17,11 @@
 <body>
 
   <header id="pageHeaderSection">
-    <a href="#">Waylon Carrier Nunes</a>
+    <a href="#">
+      <h1>
+        Waylon Carrier Nunes
+      </h1>
+    </a>
     <div id="navContainer">
       <div id="hamburger">
         <div id="hamburgerTop"></div>
@@ -25,8 +31,40 @@
     </div>
   </header>
 
-  <main>
-
+  <main id="mainSection">
+    <ul id="portfolio">
+      <li class="portfolioItem">
+        <img src="./images/soundboard-app.png"
+             alt="A preview of the soundboard app">
+        <h2>Soundboard App</h2>
+        <a href="https://breckles.github.io">https://breckles.github.io</a>
+        <p>A small soundboard application to have some fun with media and web
+          components. It is a PWA and can be downloaded to a phone when served
+          over https. It is the first project in which I used webpack.</p>
+        <div class="techLists">
+          <section class="technologies">
+            <h3>Technologies Used</h3>
+            <ul>
+              <li>Typescript</li>
+              <li>Sass CSS Preprocessor</li>
+              <li>Webpack Module Bundler</li>
+              <li><abbr title="Node Package Manager">NPM</abbr></li>
+              <li><abbr title="Reactive Extensions for JavaScript">RXJS</abbr></li>
+            </ul>
+          </section>
+          <section class="concepts">
+            <h3>Concepts Explored</h3>
+            <ul>
+              <li>Web Components</li>
+              <li>Service Workers</li>
+              <li>Working with Audio</li>
+              <li><abbr title="Progressive Web Application">PWA</abbr>s</li>
+              <li>A fascination with Arnold Schwarzaneggar quotes</li>
+            </ul>
+          </section>
+        </div>
+      </li>
+    </ul>
   </main>
 
   <footer id="pageFooterSection">

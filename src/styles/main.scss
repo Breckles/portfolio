@@ -1,3 +1,4 @@
+@use 'theme';
 @use 'hamburger';
 
 *,
@@ -9,6 +10,8 @@
 }
 
 html {
+  min-height: 100vh;
+
   font-size: 10px;
 }
 
@@ -20,18 +23,76 @@ body {
 
 #pageHeaderSection {
   padding: 1rem;
-
   display: flex;
   align-items: center;
+  height: 20vw;
 
-  background-color: grey;
+  background-color: theme.$bg-secondary;
+  font-family: 'Source Code Pro', monospace;
+
+  background-image:
+    url(../../images/html5.svg),
+    url(../../images/css3-alt.svg),
+    url(../../images/ts-logo.svg),
+    url(../../images/angular.svg);
+  background-repeat: no-repeat;
+  background-size: 20%, 15%, 10%, 7%;
+  background-position: 15vw, 40vw, 60vw, 75vw;
+
+  a {
+    text-decoration: none;
+    color: theme.$text-secondary;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 
   #navContainer {
     position: relative;
-    width: 3rem;
+    width: 2.5rem;
     height: 2rem;
-    // margin: 1rem 1rem 1rem auto;
     margin-left: auto;
-
   }
+}
+
+//// Main section /////////////////////////////////////////////////////////
+
+#mainSection {
+  #portfolio {
+    margin: 1rem;
+
+    li.portfolioItem {
+      padding: 1rem;
+      list-style-type: none;
+      border: 1px solid black;
+
+      img {
+        max-width: 100%;
+      }
+
+      .techLists {
+        display: flex;
+
+        section {
+          flex: 1;
+          margin: 1rem;
+        }
+
+        ul {
+          padding-left: 2rem;
+          margin-top: 1rem;
+        }
+
+        li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+
+
+
+
+
 }
