@@ -11,9 +11,7 @@
 
 html {
   min-height: 100vh;
-
   font-size: 10px;
-  overflow: hidden;
 }
 
 body {
@@ -39,8 +37,6 @@ a.externalLink::after {
 
 #pageHeaderSection {
   --headerHeight: 8rem;
-
-  position: relative;
 
   padding: 1rem;
   display: flex;
