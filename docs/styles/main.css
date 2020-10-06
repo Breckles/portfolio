@@ -156,10 +156,11 @@ a.externalLink::after {
 }
 
 #pageHeaderSection {
+  --headerHeight: 8rem;
   padding: 1rem;
   display: flex;
   align-items: center;
-  height: 20vw;
+  height: var(--headerHeight);
   background-color: #333333;
   font-family: "Source Code Pro", monospace;
   background-image: url(../../images/html5.svg), url(../../images/css3-alt.svg), url(../../images/ts-logo.svg), url(../../images/angular.svg);
@@ -175,10 +176,54 @@ a.externalLink::after {
   font-size: 1.8rem;
 }
 #pageHeaderSection #navContainer {
-  position: relative;
   width: 2.5rem;
   height: 2rem;
   margin-left: auto;
+}
+#pageHeaderSection #navContainer #mainMenu {
+  --main-menu-width: 65vw;
+  position: absolute;
+  width: var(--main-menu-width);
+  right: calc(-1 * var(--main-menu-width));
+  top: var(--headerHeight);
+  background-color: #646464;
+  border-bottom-left-radius: 1rem;
+  transition: all 300ms ease-in-out;
+}
+#pageHeaderSection #navContainer #mainMenu ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  list-style-type: none;
+}
+#pageHeaderSection #navContainer #mainMenu ul li {
+  margin: 1rem 0;
+}
+#pageHeaderSection #navContainer #mainMenu ul li a {
+  display: inline-block;
+  width: 100%;
+}
+#pageHeaderSection #navContainer #mainMenu ul li#profiles {
+  padding-top: 1.5rem;
+  margin: 1.5rem 0 0;
+  border-top: 1px solid black;
+  font-weight: bold;
+  font-size: 2rem;
+}
+#pageHeaderSection #navContainer #mainMenu ul li#profiles ul {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  list-style-type: none;
+}
+#pageHeaderSection #navContainer #mainMenu ul li#profiles ul li {
+  margin: 0 1rem;
+}
+#pageHeaderSection #navContainer #mainMenu.open {
+  box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
+  right: 0;
 }
 
 #mainSection #portfolio {

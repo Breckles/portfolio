@@ -36,10 +36,12 @@ a.externalLink::after {
 //// Page Header section ////////////////////////////////////////////////
 
 #pageHeaderSection {
+  --headerHeight: 8rem;
+
   padding: 1rem;
   display: flex;
   align-items: center;
-  height: 20vw;
+  height: var(--headerHeight);
 
   background-color: theme.$bg-secondary;
   font-family: 'Source Code Pro', monospace;
@@ -63,10 +65,70 @@ a.externalLink::after {
   }
 
   #navContainer {
-    position: relative;
+    // position: relative;
     width: 2.5rem;
     height: 2rem;
     margin-left: auto;
+
+    // using _hamburger.scss partial for hamburger icon
+
+    #mainMenu {
+      --main-menu-width: 65vw;
+
+      // display: none;
+      position: absolute;
+
+      width: var(--main-menu-width);
+      right: calc(-1 * var(--main-menu-width));
+      top: var(--headerHeight);
+
+      background-color: theme.$bg-menu;
+      border-bottom-left-radius: 1rem;
+      transition: all 300ms ease-in-out;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 1rem;
+        list-style-type: none;
+
+        li {
+          margin: 1rem 0;
+
+          a {
+            display: inline-block;
+            width: 100%;
+          }
+        }
+
+        li#profiles {
+          padding-top: 1.5rem;
+          margin: 1.5rem 0 0;
+
+          border-top: 1px solid black;
+          font-weight: bold;
+          font-size: 2rem;
+
+          ul {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+              margin: 0 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    #mainMenu.open {
+      box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
+      right: 0;
+    }
   }
 }
 
