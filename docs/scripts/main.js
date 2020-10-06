@@ -1,31 +1,28 @@
 "use strict";
 const hamburger = document.querySelector('#hamburger');
-const mainMenuNav = document.querySelector('#mainMenu');
+const navContainer = document.querySelector('#navContainer');
+const menuNav = document.querySelector('#menu');
 let mainMenuOpen = false;
 hamburger.addEventListener('click', (event) => {
     event.stopPropagation();
     // first time clicked
     if (mainMenuOpen) {
         hamburger.classList.replace('opened', 'closed');
-        mainMenuNav.classList.remove('open');
+        menuNav.classList.remove('open');
+        navContainer.style.display = 'none';
     }
     else {
         hamburger.classList.remove('closed');
         hamburger.classList.add('opened');
-        // mainMenuNav.style.display = 'block';
-        // window.setTimeout(() => {
-        //   mainMenuNav.style.right = '0';
-        // }, 10);
-        mainMenuNav.classList.add('open');
+        menuNav.classList.add('open');
+        navContainer.style.display = 'block';
     }
     mainMenuOpen = !mainMenuOpen;
 });
-window.addEventListener('click', (event) => {
-    console.log(event.target);
-    console.log(mainMenuNav);
-    if (event.target != mainMenuNav) {
+window.addEventListener('touchstart', (event) => {
+    if (!menuNav.contains(event.target)) {
         hamburger.classList.replace('opened', 'closed');
-        mainMenuNav.classList.remove('open');
+        menuNav.classList.remove('open');
         mainMenuOpen = false;
     }
 });

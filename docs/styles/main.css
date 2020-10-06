@@ -135,6 +135,7 @@
 html {
   min-height: 100vh;
   font-size: 10px;
+  overflow: hidden;
 }
 
 body {
@@ -157,6 +158,7 @@ a.externalLink::after {
 
 #pageHeaderSection {
   --headerHeight: 8rem;
+  position: relative;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -175,53 +177,63 @@ a.externalLink::after {
 #pageHeaderSection h1 {
   font-size: 1.8rem;
 }
-#pageHeaderSection #navContainer {
+#pageHeaderSection #mainMenu {
   width: 2.5rem;
   height: 2rem;
   margin-left: auto;
 }
-#pageHeaderSection #navContainer #mainMenu {
+#pageHeaderSection #mainMenu #navContainer {
   --main-menu-width: 65vw;
+  pointer-events: none;
+  display: none;
   position: absolute;
+  top: var(--headerHeight);
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+#pageHeaderSection #mainMenu #navContainer nav#menu {
+  position: absolute;
+  pointer-events: auto;
   width: var(--main-menu-width);
   right: calc(-1 * var(--main-menu-width));
-  top: var(--headerHeight);
   background-color: #646464;
   border-bottom-left-radius: 1rem;
   transition: all 300ms ease-in-out;
 }
-#pageHeaderSection #navContainer #mainMenu ul {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 1rem;
   list-style-type: none;
 }
-#pageHeaderSection #navContainer #mainMenu ul li {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul li {
   margin: 1rem 0;
 }
-#pageHeaderSection #navContainer #mainMenu ul li a {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul li a {
   display: inline-block;
   width: 100%;
 }
-#pageHeaderSection #navContainer #mainMenu ul li#profiles {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles {
   padding-top: 1.5rem;
   margin: 1.5rem 0 0;
   border-top: 1px solid black;
   font-weight: bold;
   font-size: 2rem;
 }
-#pageHeaderSection #navContainer #mainMenu ul li#profiles ul {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles ul {
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0;
   list-style-type: none;
 }
-#pageHeaderSection #navContainer #mainMenu ul li#profiles ul li {
+#pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles ul li {
   margin: 0 1rem;
 }
-#pageHeaderSection #navContainer #mainMenu.open {
+#pageHeaderSection #mainMenu #navContainer nav#menu.open {
   box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
   right: 0;
 }
@@ -267,6 +279,15 @@ a.externalLink::after {
   list-style-type: disc;
 }
 
+@media screen and (min-width: 650px) {
+  ul#portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ul#portfolio li {
+    margin: 0.5rem;
+  }
+}
 @media screen and (min-width: 1024px) {
   abbr {
     text-decoration: underline dotted #333333;

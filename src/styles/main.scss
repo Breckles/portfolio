@@ -13,6 +13,7 @@ html {
   min-height: 100vh;
 
   font-size: 10px;
+  overflow: hidden;
 }
 
 body {
@@ -35,8 +36,11 @@ a.externalLink::after {
 
 //// Page Header section ////////////////////////////////////////////////
 
+
 #pageHeaderSection {
   --headerHeight: 8rem;
+
+  position: relative;
 
   padding: 1rem;
   display: flex;
@@ -64,70 +68,81 @@ a.externalLink::after {
     font-size: 1.8rem;
   }
 
-  #navContainer {
-    // position: relative;
+  #mainMenu {
     width: 2.5rem;
     height: 2rem;
     margin-left: auto;
 
     // using _hamburger.scss partial for hamburger icon
-
-    #mainMenu {
+    #navContainer {
       --main-menu-width: 65vw;
 
-      // display: none;
+      pointer-events: none;
+
+      display: none;
       position: absolute;
-
-      width: var(--main-menu-width);
-      right: calc(-1 * var(--main-menu-width));
       top: var(--headerHeight);
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
 
-      background-color: theme.$bg-menu;
-      border-bottom-left-radius: 1rem;
-      transition: all 300ms ease-in-out;
+      nav#menu {
+        position: absolute;
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 1rem;
-        list-style-type: none;
+        pointer-events: auto;
 
-        li {
-          margin: 1rem 0;
+        width: var(--main-menu-width);
+        right: calc(-1 * var(--main-menu-width));
 
-          a {
-            display: inline-block;
-            width: 100%;
+        background-color: theme.$bg-menu;
+        border-bottom-left-radius: 1rem;
+        transition: all 300ms ease-in-out;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          padding: 1rem;
+
+          list-style-type: none;
+
+          li {
+            margin: 1rem 0;
+
+            a {
+              display: inline-block;
+              width: 100%;
+            }
           }
-        }
 
-        li#profiles {
-          padding-top: 1.5rem;
-          margin: 1.5rem 0 0;
+          li#profiles {
+            padding-top: 1.5rem;
+            margin: 1.5rem 0 0;
 
-          border-top: 1px solid black;
-          font-weight: bold;
-          font-size: 2rem;
+            border-top: 1px solid black;
+            font-weight: bold;
+            font-size: 2rem;
 
-          ul {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            list-style-type: none;
+            ul {
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 0;
+              list-style-type: none;
 
-            li {
-              margin: 0 1rem;
+              li {
+                margin: 0 1rem;
+              }
             }
           }
         }
       }
-    }
 
-    #mainMenu.open {
-      box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
-      right: 0;
+      nav#menu.open {
+        box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
+        right: 0;
+      }
     }
   }
 }
@@ -191,6 +206,18 @@ a.externalLink::after {
   }
 }
 
+//// Screen width >= 650 //////////////////////////////////////////
+
+@media screen and (min-width: 650px) {
+  ul#portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    li {
+      margin: 0.5rem;
+    }
+  }
+}
 
 //// Screen width >= 1024 ////////////////////////////////////////
 
