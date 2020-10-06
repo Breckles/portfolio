@@ -78,8 +78,6 @@ a.externalLink::after {
       --main-menu-width: 65vw;
 
       pointer-events: none;
-
-      display: none;
       position: absolute;
       top: var(--headerHeight);
       right: 0;
