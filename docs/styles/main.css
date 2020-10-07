@@ -181,7 +181,7 @@ a.externalLink::after {
   margin-left: auto;
 }
 #pageHeaderSection #mainMenu #navContainer {
-  --main-menu-width: 65vw;
+  --main-menu-width: 25rem;
   pointer-events: none;
   position: absolute;
   top: var(--headerHeight);
@@ -231,7 +231,7 @@ a.externalLink::after {
   margin: 0 1rem;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu.open {
-  box-shadow: -2rem 2rem 3rem 1rem rgba(0, 0, 0, 0.75);
+  box-shadow: -2rem 2rem 3rem rgba(0, 0, 0, 0.75);
   right: 0;
 }
 
@@ -249,6 +249,8 @@ a.externalLink::after {
 }
 #mainSection #portfolio li.portfolioItem img {
   max-width: 100%;
+  max-height: 25%;
+  object-fit: contain;
   border: 1px solid rgba(51, 51, 51, 0.2);
   box-shadow: 2px 2px 3px #333333, -2px 2px 3px #333333;
 }
@@ -276,16 +278,22 @@ a.externalLink::after {
   list-style-type: disc;
 }
 
-@media screen and (min-width: 650px) {
-  ul#portfolio {
+@media screen and (min-width: 760px) {
+  #mainSection ul#portfolio {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    gap: 0.5rem;
   }
-  ul#portfolio li {
-    margin: 0.5rem;
+  #mainSection ul#portfolio li.portfolioItem {
+    display: flex;
+    flex-direction: column;
+  }
+  #mainSection ul#portfolio li.portfolioItem img {
+    max-height: 50%;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1350px) {
   abbr {
     text-decoration: underline dotted #333333;
   }
