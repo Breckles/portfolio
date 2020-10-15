@@ -28,4 +28,13 @@ window.addEventListener('click', (event) => {
         mainMenuOpen = false;
     }
 });
+// Navigate through portfolio items
+const itemDots = document.getElementsByClassName('dot');
+let activeDot;
+for (const item of itemDots) {
+    console.log(item);
+    item.addEventListener('click', (event) => {
+        console.log(event.target);
+    });
+}
 //# sourceMappingURL=main.js.map
