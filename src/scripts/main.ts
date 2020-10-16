@@ -56,18 +56,25 @@ for (const dot of dots) {
   });
 }
 
-// Navigate with mouse wheel
+// Navigate with mouse wheel (need flag to prevent multiple events from colliding)
+let working = false;
 document.addEventListener('wheel', (event) => {
-  if (event.deltaY < 0 && currentIndex < maxIndex) {
-    dots[currentIndex].classList.remove('active');
-    currentIndex++;
-    portfolioItems[currentIndex].scrollIntoView(false);
-    dots[currentIndex].classList.add('active');
-  } else if (event.deltaY > 0 && currentIndex > 0) {
-    // ...wheel down
-    dots[currentIndex].classList.remove('active');
-    currentIndex--;
-    portfolioItems[currentIndex].scrollIntoView(false);
-    dots[currentIndex].classList.add('active');
+  if (!working) {
+    working = !working;
+
+    if (event.deltaY < 0 && currentIndex < maxIndex) {
+      dots[currentIndex].classList.remove('active');
+      currentIndex++;
+      portfolioItems[currentIndex].scrollIntoView(false);
+      dots[currentIndex].classList.add('active');
+    } else if (event.deltaY > 0 && currentIndex > 0) {
+      // ...wheel down
+      dots[currentIndex].classList.remove('active');
+      currentIndex--;
+      portfolioItems[currentIndex].scrollIntoView(false);
+      dots[currentIndex].classList.add('active');
+    }
+
+    working = !working;
   }
 });
