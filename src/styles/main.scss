@@ -261,10 +261,10 @@ a.externalLink::after {
       flex: 9;
       display: flex;
       align-items: stretch;
-      // height: 100%;
       margin: 0;
       overflow-x: hidden;
 
+      scroll-behavior: smooth;
       background-color: theme.$bg-card;
 
       li.portfolioItem {

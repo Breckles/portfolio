@@ -22,7 +22,6 @@ hamburger.addEventListener('click', (event) => {
 });
 
 window.addEventListener('click', (event) => {
-  console.log(event.target);
   if (!menuNav.contains(<Node>event.target)) {
     event.stopPropagation();
     hamburger.classList.replace('opened', 'closed');
@@ -31,17 +30,34 @@ window.addEventListener('click', (event) => {
   }
 });
 
-// Navigate through portfolio items
+// Navigate through portfolio items ///////////////////////////////////
 
 const itemDots = document.getElementsByClassName('dot') as HTMLCollectionOf<
   HTMLDivElement
 >;
-let activeDot;
+const portfolio = document.querySelector('#portfolio') as HTMLUListElement;
+const portfolioItems = portfolio.children as HTMLCollectionOf<HTMLLIElement>;
+
+let activeDot = itemDots.item(0)!;
+activeDot.classList.add('active');
+// let activePortfolioItem = portfolioItems.item(0);
+
+let dotLiMap: Map<HTMLDivElement, HTMLLIElement> = new Map();
+
+for (let i = 0; i < itemDots.length; i++) {
+  dotLiMap.set(itemDots.item(i)!, portfolioItems.item(i)!);
+}
+console.log(dotLiMap);
 
 for (const item of itemDots) {
-  console.log(item);
-
   item.addEventListener('click', (event) => {
-    console.log(event.target);
+    let dot = event.target as HTMLDivElement;
+    if (dot !== activeDot) {
+      console.log('different dot clicked');
+      activeDot.classList.remove('active');
+      activeDot = dot;
+      dot.classList.add('active');
+      dotLiMap.get(activeDot)!.scrollIntoView(false);
+    }
   });
 }

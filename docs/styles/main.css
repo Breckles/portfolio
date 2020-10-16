@@ -324,6 +324,7 @@ a.externalLink::after {
     align-items: stretch;
     margin: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     background-color: #d2e6e7;
   }
   #mainSection ul#portfolio li.portfolioItem {
