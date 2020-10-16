@@ -32,32 +32,42 @@ window.addEventListener('click', (event) => {
 
 // Navigate through portfolio items ///////////////////////////////////
 
-const itemDots = document.getElementsByClassName('dot') as HTMLCollectionOf<
+const portfolioEl = document.querySelector('#portfolio') as HTMLUListElement;
+const portfolioItems = [...portfolioEl.children];
+
+let currentIndex = 0;
+const maxIndex = portfolioItems.length - 1;
+
+const dotEls = document.getElementsByClassName('dot') as HTMLCollectionOf<
   HTMLDivElement
 >;
-const portfolio = document.querySelector('#portfolio') as HTMLUListElement;
-const portfolioItems = portfolio.children as HTMLCollectionOf<HTMLLIElement>;
+const dots = [...dotEls];
+dots[currentIndex].classList.add('active');
 
-let activeDot = itemDots.item(0)!;
-activeDot.classList.add('active');
-// let activePortfolioItem = portfolioItems.item(0);
-
-let dotLiMap: Map<HTMLDivElement, HTMLLIElement> = new Map();
-
-for (let i = 0; i < itemDots.length; i++) {
-  dotLiMap.set(itemDots.item(i)!, portfolioItems.item(i)!);
-}
-console.log(dotLiMap);
-
-for (const item of itemDots) {
-  item.addEventListener('click', (event) => {
-    let dot = event.target as HTMLDivElement;
-    if (dot !== activeDot) {
-      console.log('different dot clicked');
-      activeDot.classList.remove('active');
-      activeDot = dot;
-      dot.classList.add('active');
-      dotLiMap.get(activeDot)!.scrollIntoView(false);
+for (const dot of dots) {
+  dot.addEventListener('click', (event) => {
+    let clickedDot = event.target as HTMLDivElement;
+    if (clickedDot !== dots[currentIndex]) {
+      dots[currentIndex].classList.remove('active');
+      currentIndex = dots.indexOf(clickedDot);
+      dots[currentIndex].classList.add('active');
+      portfolioItems[currentIndex].scrollIntoView(false);
     }
   });
 }
+
+// Navigate with mouse wheel
+document.addEventListener('wheel', (event) => {
+  if (event.deltaY < 0 && currentIndex < maxIndex) {
+    dots[currentIndex].classList.remove('active');
+    currentIndex++;
+    portfolioItems[currentIndex].scrollIntoView(false);
+    dots[currentIndex].classList.add('active');
+  } else if (event.deltaY > 0 && currentIndex > 0) {
+    // ...wheel down
+    dots[currentIndex].classList.remove('active');
+    currentIndex--;
+    portfolioItems[currentIndex].scrollIntoView(false);
+    dots[currentIndex].classList.add('active');
+  }
+});

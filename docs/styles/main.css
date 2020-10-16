@@ -277,7 +277,7 @@ a.externalLink::after {
 #mainSection #portfolio li.portfolioItem .techLists li {
   list-style-type: disc;
 }
-#mainSection nav#itemSwitcher {
+#mainSection nav#portfolioNav {
   display: none;
 }
 
@@ -345,27 +345,27 @@ a.externalLink::after {
     flex: 1;
     padding: 5rem;
   }
-  #mainSection nav#itemSwitcher {
+  #mainSection nav#portfolioNav {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  #mainSection nav#itemSwitcher ul {
+  #mainSection nav#portfolioNav ul {
     display: flex;
     gap: 1rem;
     list-style-type: none;
   }
-  #mainSection nav#itemSwitcher ul li div.dot {
+  #mainSection nav#portfolioNav ul li div.dot {
     width: 1rem;
     height: 1rem;
     border: 1px solid #5f6a72;
     border-radius: 50%;
   }
-  #mainSection nav#itemSwitcher ul li div.dot:hover {
+  #mainSection nav#portfolioNav ul li div.dot:hover {
     cursor: pointer;
   }
-  #mainSection nav#itemSwitcher ul li div.dot.active {
+  #mainSection nav#portfolioNav ul li div.dot.active {
     background-color: #333333;
   }
 }
