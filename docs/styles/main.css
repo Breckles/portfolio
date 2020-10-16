@@ -173,6 +173,7 @@ a.externalLink::after {
   color: #fffff4;
 }
 #pageHeaderSection h1 {
+  color: #fffff4;
   font-size: 1.8rem;
 }
 #pageHeaderSection #mainMenu {
@@ -316,7 +317,6 @@ a.externalLink::after {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 8rem);
-    position: relative;
   }
   #mainSection ul#portfolio {
     flex: 9;

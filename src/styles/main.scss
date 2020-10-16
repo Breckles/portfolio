@@ -62,6 +62,7 @@ a.externalLink::after {
   }
 
   h1 {
+    color: theme.$text-header;
     font-size: 1.8rem;
   }
 
@@ -255,7 +256,6 @@ a.externalLink::after {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 8rem);
-    position: relative;
 
     ul#portfolio {
       flex: 9;
@@ -295,7 +295,6 @@ a.externalLink::after {
       display: flex;
       align-items: center;
       justify-content: center;
-      // max-height: 5rem;
 
       ul {
         display: flex;
