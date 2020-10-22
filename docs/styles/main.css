@@ -157,6 +157,8 @@ a.externalLink::after {
 
 #pageHeaderSection {
   --headerHeight: 8rem;
+  position: relative;
+  z-index: 5;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -236,6 +238,10 @@ a.externalLink::after {
   right: 0;
 }
 
+#mainSection {
+  position: relative;
+  z-index: 1;
+}
 #mainSection #portfolio {
   margin: 1rem;
 }
@@ -276,6 +282,9 @@ a.externalLink::after {
 }
 #mainSection #portfolio li.portfolioItem .techLists li {
   list-style-type: disc;
+}
+#mainSection .navArrow {
+  display: none;
 }
 #mainSection nav#portfolioNav {
   display: none;
@@ -323,8 +332,7 @@ a.externalLink::after {
     display: flex;
     align-items: stretch;
     margin: 0;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    overflow: hidden;
     background-color: #c8fcea;
   }
   #mainSection ul#portfolio li.portfolioItem {
@@ -344,6 +352,34 @@ a.externalLink::after {
   #mainSection ul#portfolio li.portfolioItem section.info {
     flex: 1;
     padding: 5rem;
+  }
+  #mainSection .navArrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 8rem;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+  }
+  #mainSection .navArrow img {
+    display: none;
+  }
+  #mainSection .navArrow:hover {
+    background-color: rgba(95, 106, 114, 0.3);
+  }
+  #mainSection .navArrow:hover img {
+    display: block;
+    max-width: 50%;
+  }
+  #mainSection button#leftArrow {
+    left: 0;
+  }
+  #mainSection button#rightArrow {
+    right: 0;
   }
   #mainSection nav#portfolioNav {
     flex: 1;

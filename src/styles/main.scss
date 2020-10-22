@@ -39,6 +39,8 @@ a.externalLink::after {
 #pageHeaderSection {
   --headerHeight: 8rem;
 
+  position: relative;
+  z-index: 5;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -146,6 +148,9 @@ a.externalLink::after {
 //// Main section /////////////////////////////////////////////////////////
 
 #mainSection {
+  position: relative;
+  z-index: 1;
+
   #portfolio {
     margin: 1rem;
 
@@ -201,6 +206,10 @@ a.externalLink::after {
         }
       }
     }
+  }
+
+  .navArrow {
+    display: none;
   }
 
   nav#portfolioNav {
@@ -262,9 +271,8 @@ a.externalLink::after {
       display: flex;
       align-items: stretch;
       margin: 0;
-      overflow-x: hidden;
+      overflow: hidden;
 
-      scroll-behavior: smooth;
       background-color: theme.$bg-card;
 
       li.portfolioItem {
@@ -288,6 +296,42 @@ a.externalLink::after {
           padding: 5rem;
         }
       }
+    }
+
+    .navArrow {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 8rem;
+
+      cursor: pointer;
+      outline: none;
+      background: none;
+      border: none;
+
+      img {
+        display: none;
+      }
+    }
+
+    .navArrow:hover {
+      background-color: rgba(theme.$bg-primary, 0.3);
+
+      img {
+        display: block;
+        max-width: 50%;
+      }
+    }
+
+
+    button#leftArrow {
+      left: 0;
+    }
+
+    button#rightArrow {
+      right: 0;
     }
 
     nav#portfolioNav {

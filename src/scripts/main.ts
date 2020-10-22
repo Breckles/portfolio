@@ -32,8 +32,10 @@ window.addEventListener('click', (event) => {
 
 // Navigate through portfolio items ///////////////////////////////////
 
-const portfolioEl = document.querySelector('#portfolio') as HTMLUListElement;
-const portfolioItems = [...portfolioEl.children];
+// const portfolioEl = document.querySelector('#portfolio') as HTMLUListElement;
+const portfolioItems = [
+  ...document.getElementsByClassName('portfolioItem'),
+] as HTMLLIElement[];
 
 let currentIndex = 0;
 const maxIndex = portfolioItems.length - 1;
@@ -44,6 +46,12 @@ const dotEls = document.getElementsByClassName('dot') as HTMLCollectionOf<
 const dots = [...dotEls];
 dots[currentIndex].classList.add('active');
 
+const scrollOptions: ScrollIntoViewOptions = {
+  behavior: 'smooth',
+  block: 'end',
+  inline: 'nearest',
+};
+
 for (const dot of dots) {
   dot.addEventListener('click', (event) => {
     let clickedDot = event.target as HTMLDivElement;
@@ -51,30 +59,37 @@ for (const dot of dots) {
       dots[currentIndex].classList.remove('active');
       currentIndex = dots.indexOf(clickedDot);
       dots[currentIndex].classList.add('active');
-      portfolioItems[currentIndex].scrollIntoView(false);
+      portfolioItems[currentIndex].scrollIntoView(scrollOptions);
     }
   });
 }
 
-// Navigate with mouse wheel (need flag to prevent multiple events from colliding)
-let working = false;
-document.addEventListener('wheel', (event) => {
-  if (!working) {
-    working = !working;
+// Navigate with arrows
+let leftArrowButtonEl = document.querySelector(
+  '#leftArrow'
+) as HTMLButtonElement;
+let rightArrowButtonEl = document.querySelector(
+  '#rightArrow'
+) as HTMLButtonElement;
 
-    if (event.deltaY < 0 && currentIndex < maxIndex) {
-      dots[currentIndex].classList.remove('active');
-      currentIndex++;
-      portfolioItems[currentIndex].scrollIntoView(false);
-      dots[currentIndex].classList.add('active');
-    } else if (event.deltaY > 0 && currentIndex > 0) {
-      // ...wheel down
-      dots[currentIndex].classList.remove('active');
-      currentIndex--;
-      portfolioItems[currentIndex].scrollIntoView(false);
-      dots[currentIndex].classList.add('active');
-    }
+leftArrowButtonEl.addEventListener('click', scrollLeft);
+rightArrowButtonEl.addEventListener('click', scrollRight);
 
-    working = !working;
+function scrollLeft() {
+  if (currentIndex > 0) {
+    dots[currentIndex].classList.remove('active');
+    currentIndex--;
+    dots[currentIndex].classList.add('active');
+    portfolioItems[currentIndex].scrollIntoView(scrollOptions);
   }
-});
+}
+function scrollRight() {
+  if (currentIndex < maxIndex) {
+    dots[currentIndex].classList.remove('active');
+    currentIndex++;
+    dots[currentIndex].classList.add('active');
+    portfolioItems[currentIndex].scrollIntoView(scrollOptions);
+  }
+}
+
+portfolioItems[currentIndex].scrollIntoView(false);
