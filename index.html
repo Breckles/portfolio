@@ -50,6 +50,10 @@
               <a href="https://wayloncn-ip-tracker.vercel.app/"
                  target="_blank">IP Tracker App</a>
             </li>
+            <li>
+              <a href="https://wayloncn-rock-paper-scissors-game.vercel.app"
+                 target="_blank">Rock Paper Scissors Game</a>
+            </li>
             <li id="profiles">
               <ul>
                 <li>
@@ -282,8 +286,9 @@
           <a href="https://wayloncn-room-homepage.vercel.app"
              target="_blank">https://wayloncn-room-homepage.vercel.app/</a>
           <p>
-            A homepage for the 'Room' company. This was a <a
+            A homepage for the 'Room' company. This was a <a class="externalLink"
                href="https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq">challenge</a> by <a
+               class="externalLink"
                href="https://www.frontendmentor.io/">Frontend Mentor</a>, who provided the design documents. This
             provided a nice challenge for responsive layouts and images, it was built using the Angular framework.
           </p>
@@ -308,14 +313,62 @@
           </div>
         </section>
       </li>
+      <li class="portfolioItem">
+        <img src="./images/rock-paper-scissors.png"
+             alt="A preview of the Rock Paper Scissors game">
+        <section class="info">
+          <h2>Rock Paper Scissors (Lizard Spock)</h2>
+          <a href="https://wayloncn-rock-paper-scissors-game.vercel.app"
+             target="_blank">https://wayloncn-rock-paper-scissors-game.vercel.app</a>
+          <p>
+            This small 'Rock Paper Scissors' game was a great excercise in CSS
+            animations and transitions, as well as in responsive web design. The
+            <a class="externalLink"
+               href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH">challenge</a>
+            provided by <a class="externalLink"
+               href="https://www.frontendmentor.io">Frontend Mentor</a>
+            asks the developer to implement either the traditional game or the
+            'Rock Paper Scissors Lizard Spock' variant; I decided to implement
+            both and let the user toggle between them. The game maintains a
+            session score, which maintains state on page reload and lets the
+            user play separate games in multiple tabs. The game is a <abbr
+                  title="Progressive Web Application">PWA</abbr> and can be added to
+            the homescreen/desktop as well as function offline. The
+            application was built using Angular.
+          </p>
+          <div class="techLists">
+            <section class="technologies">
+              <h3>Technologies Used</h3>
+              <ul>
+                <li>Angular</li>
+                <li>Typescript</li>
+                <li><abbr title="Hypertext Markup Language">HTML</abbr></li>
+                <li><abbr title="Cascading Style Sheets">CSS</abbr></li>
+                <li>Sass CSS Preprocessor</li>
+              </ul>
+            </section>
+            <section class="concepts">
+              <h3>Concepts Explored</h3>
+              <ul>
+                <li>Responsive layouts</li>
+                <li>Responsive images</li>
+                <li>CSS Animations</li>
+                <li>CSS Transitions</li>
+                <li><abbr title="Progressive Web Application">PWA</abbr>s</li>
+                <li>Service Workers</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </li>
       <button id="leftArrow"
-              class="navArrow"
+              class="navArrow hidden"
               type="button">
         <img src="./images/chevron-left.svg"
              alt="A chevron pointing left">
       </button>
       <button id="rightArrow"
-              class="navArrow"
+              class="navArrow visible"
               type="button">
         <img src="./images/chevron-right.svg"
              alt="A chevron pointing right">
@@ -345,6 +398,10 @@
         </li>
         <li>
           <div id="dot6"
+               class="dot"></div>
+        </li>
+        <li>
+          <div id="dot7"
                class="dot"></div>
         </li>
       </ul>

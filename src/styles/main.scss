@@ -101,17 +101,20 @@ a.externalLink::after {
           display: flex;
           flex-direction: column;
           height: 100%;
-          padding: 1rem;
 
           list-style-type: none;
 
           li {
-            margin: 1rem 0;
+            padding: 1rem;
 
             a {
               display: inline-block;
               width: 100%;
             }
+          }
+
+          &>li:nth-child(even) {
+            background-color: theme.$bg-secondary;
           }
 
           li#profiles {
@@ -130,7 +133,7 @@ a.externalLink::after {
               list-style-type: none;
 
               li {
-                margin: 0 1rem;
+                background-color: theme.$bg-menu;
               }
             }
           }
@@ -312,16 +315,24 @@ a.externalLink::after {
       border: none;
 
       img {
-        display: none;
+        // display: none;
+        max-width: 50%;
       }
     }
 
-    .navArrow:hover {
+    .navArrow.visible {
+      display: flex;
+    }
+
+    .navArrow.hidden {
+      display: none;
+    }
+
+    .navArrow.visible:hover {
       background-color: rgba(theme.$bg-primary, 0.3);
 
       img {
         display: block;
-        max-width: 50%;
       }
     }
 

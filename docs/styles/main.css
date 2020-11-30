@@ -206,15 +206,17 @@ a.externalLink::after {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1rem;
   list-style-type: none;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu ul li {
-  margin: 1rem 0;
+  padding: 1rem;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu ul li a {
   display: inline-block;
   width: 100%;
+}
+#pageHeaderSection #mainMenu #navContainer nav#menu ul > li:nth-child(even) {
+  background-color: #333333;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles {
   padding-top: 1.5rem;
@@ -231,7 +233,7 @@ a.externalLink::after {
   list-style-type: none;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles ul li {
-  margin: 0 1rem;
+  background-color: #4b4d52;
 }
 #pageHeaderSection #mainMenu #navContainer nav#menu.open {
   box-shadow: -2rem 2rem 3rem rgba(0, 0, 0, 0.75);
@@ -366,14 +368,19 @@ a.externalLink::after {
     border: none;
   }
   #mainSection .navArrow img {
+    max-width: 50%;
+  }
+  #mainSection .navArrow.visible {
+    display: flex;
+  }
+  #mainSection .navArrow.hidden {
     display: none;
   }
-  #mainSection .navArrow:hover {
+  #mainSection .navArrow.visible:hover {
     background-color: rgba(95, 106, 114, 0.3);
   }
-  #mainSection .navArrow:hover img {
+  #mainSection .navArrow.visible:hover img {
     display: block;
-    max-width: 50%;
   }
   #mainSection button#leftArrow {
     left: 0;

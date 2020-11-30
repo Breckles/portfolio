@@ -40,9 +40,9 @@ const portfolioItems = [
 let currentIndex = 0;
 const maxIndex = portfolioItems.length - 1;
 
-const dotEls = document.getElementsByClassName('dot') as HTMLCollectionOf<
-  HTMLDivElement
->;
+const dotEls = document.getElementsByClassName(
+  'dot'
+) as HTMLCollectionOf<HTMLDivElement>;
 const dots = [...dotEls];
 dots[currentIndex].classList.add('active');
 
@@ -60,6 +60,7 @@ for (const dot of dots) {
       currentIndex = dots.indexOf(clickedDot);
       dots[currentIndex].classList.add('active');
       portfolioItems[currentIndex].scrollIntoView(scrollOptions);
+      toggleNavArrows();
     }
   });
 }
@@ -81,6 +82,7 @@ function scrollLeft() {
     currentIndex--;
     dots[currentIndex].classList.add('active');
     portfolioItems[currentIndex].scrollIntoView(scrollOptions);
+    toggleNavArrows();
   }
 }
 function scrollRight() {
@@ -89,6 +91,26 @@ function scrollRight() {
     currentIndex++;
     dots[currentIndex].classList.add('active');
     portfolioItems[currentIndex].scrollIntoView(scrollOptions);
+    toggleNavArrows();
+  }
+}
+
+// Decides whether or not to display arrows
+function toggleNavArrows() {
+  if (currentIndex === 0) {
+    leftArrowButtonEl.classList.remove('visible');
+    leftArrowButtonEl.classList.add('hidden');
+  } else {
+    leftArrowButtonEl.classList.remove('hidden');
+    leftArrowButtonEl.classList.add('visible');
+  }
+
+  if (currentIndex === maxIndex) {
+    rightArrowButtonEl.classList.remove('visible');
+    rightArrowButtonEl.classList.add('hidden');
+  } else {
+    rightArrowButtonEl.classList.remove('hidden');
+    rightArrowButtonEl.classList.add('visible');
   }
 }
 
