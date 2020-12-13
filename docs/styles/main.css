@@ -218,6 +218,9 @@ a.externalLink::after {
 #pageHeaderSection #mainMenu #navContainer nav#menu ul > li:nth-child(even) {
   background-color: #333333;
 }
+#pageHeaderSection #mainMenu #navContainer nav#menu ul > li:last-child {
+  background-color: #4b4d52;
+}
 #pageHeaderSection #mainMenu #navContainer nav#menu ul li#profiles {
   padding-top: 1.5rem;
   margin: 1.5rem 0 0;
